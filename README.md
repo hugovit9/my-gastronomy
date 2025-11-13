@@ -1,6 +1,6 @@
-# 🍽️ MyGastronomyYt
+# 🍽️ MyGastronomy
 
-**MyGastronomyYt** é uma aplicação web do tipo **marketplace/restaurante** — parecida com o iFood — que permite visualizar cardápios, escolher itens, montar pedidos e finalizar pagamentos. O projeto possui **frontend** (interface do cliente) e **backend** (API REST) e foi desenvolvido para simular o fluxo completo de um site de restaurante/pedido online.
+**MyGastronomy** é uma aplicação web do tipo **marketplace/restaurante** — parecida com o iFood — que permite visualizar cardápios, escolher itens, montar pedidos e finalizar pagamentos. O projeto possui **frontend** (interface do cliente) e **backend** (API REST) e foi desenvolvido para simular o fluxo completo de um site de restaurante/pedido online.
 
 ---
 
