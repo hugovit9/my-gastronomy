@@ -12,20 +12,21 @@ A aplicação permite que usuários naveguem pelo cardápio, adicionem itens ao 
 
 ## ⚙️ Tecnologias Utilizadas
 
-### Backend
-- **Node.js** — ambiente de execução JavaScript
-- **Express.js** — framework para criação de APIs
-- **MongoDB / Mongoose** — banco de dados não relacional (ajuste se usar outro)
-- **dotenv** — gerenciamento de variáveis de ambiente
-- **cors** — liberação de acesso entre domínios
-- **nodemon** — para desenvolvimento com atualização automática
+### 🧠 Backend
+- 🟩 **Node.js**
+- 🚀 **Express.js**
+- 🍃 **MongoDB / Mongoose**
+- 🔐 **JWT** para autenticação
+- ⚙️ **dotenv, cors, morgan, bcrypt**
+- 🧾 **Stripe / PagSeguro** (para pagamentos)
+- 🔁 **Nodemon** (ambiente dev)
 
-### Frontend
-- **React.js** — biblioteca principal para construção da interface
-- **Vite** — ferramenta de build rápida para desenvolvimento moderno
-- **Axios** — para integração com a API
-- **React Router DOM** — controle de rotas no frontend
-- **CSS Modules / Styled Components** — estilização dos componentes
-- **Bootstrap / TailwindCSS** — (caso esteja sendo usado para layout)
+### 💻 Frontend
+- ⚛️ **React.js**
+- ⚡ **Vite**
+- 🌐 **Axios** (requisições à API)
+- 🧭 **React Router DOM**
+- 🎨 **TailwindCSS / CSS Modules / Bootstrap**
+- 🛍️ **Context API / Redux** (para o carrinho)
 
 ---
