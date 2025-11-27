@@ -1,0 +1,77 @@
+.foodSection{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    background-color: #004643;
+    color: #faf0ca;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.pageContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    padding: 1em ;
+}
+
+.foodSection div{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.2em;
+}
+
+
+.contactSection{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.socialButtonsContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 0.2em;
+}
+
+.socialButton{
+    font-size: medium;
+}
+
+@media screen and (max-width: 1000px) {
+    .foodSection {
+        grid-template-columns: repeat(1, 1fr);
+    }
+            .socialButtonsContainer {
+    display: grid;
+    flex-direction: column;
+    gap: 0.2em;
+    align-items: center;
+     justify-content: center;
+    
+} .socialButton{
+     width: 100%;
+    font-size: medium;
+}
+}
+
+@media screen and (max-width: 700px) {
+    .foodSection {
+        grid-template-columns: repeat(1, 1fr);
+    }
+            .socialButtonsContainer {
+    display: grid;
+    flex-direction: column;
+    gap: 0.2em;
+    align-items: center;
+    justify-content: center;
+    
+} .socialButton{
+     width: 100%;
+     font-size: medium;
+}
+}
+

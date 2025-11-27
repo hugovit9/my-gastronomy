@@ -8,7 +8,11 @@ import { ObjectId } from 'mongodb'
 
 const collectionName = 'users'
 
-passport.use(new LocalStrategy({usernameFDield: 'email'}, async(email, password, callback) =>{
+
+
+passport.use(new LocalStrategy({usernameField: 'email'}, async(email, password, callback) =>{
+
+    
     const user = await Mongo.db
     .collection(collectionName)
     .findOne({email: email})
@@ -17,7 +21,7 @@ passport.use(new LocalStrategy({usernameFDield: 'email'}, async(email, password,
         return callback(null, false)
     }
 
-    const saltBuffer = user.salt.saltBuffer
+    const saltBuffer = user.salt.buffer
 
     crypto.pbkdf2(password, saltBuffer, 310000, 16, 'sha256', (err, hashedPassword) =>{
         if(err){
@@ -36,8 +40,9 @@ passport.use(new LocalStrategy({usernameFDield: 'email'}, async(email, password,
 }))
 
 const authRouter = express.Router()
+authRouter.use(express.json())
 
-authRouter.post('/singup', async(req, res) =>{
+authRouter.post('/signup', async(req, res) =>{
     const checkUser = await Mongo.db
     .collection(collectionName)
     .findOne({email: req.body.email})
@@ -59,7 +64,7 @@ authRouter.post('/singup', async(req, res) =>{
             sucess: false,
             statusCode: 500,
             body: {
-                text:'Eroor on crypto password!',
+                text:'User already exists',
                 err
             }
         })
@@ -67,6 +72,7 @@ authRouter.post('/singup', async(req, res) =>{
         const result = await Mongo.db
         .collection(collectionName)
         .insertOne({
+            fullname: req.body.fullname,
             email: req.body.email,
             password: hashedPassword,
             salt
@@ -94,4 +100,40 @@ authRouter.post('/singup', async(req, res) =>{
 })
 
 
-export default authRouter
+authRouter.post('/login', (req, res) => {
+    passport.authenticate('local', (error, user) =>{
+        if(error){
+            return res.status(500).send({
+                  sucess: false,
+            statusCode: 500,
+            body: {
+                text:'Error during authentication',
+                error
+            }
+            })
+        }
+        if (!user){
+            return res.status(400).send({
+                  sucess: false,
+            statusCode: 400,
+            body: {
+                text:'Credentials are not correct'
+            }
+            })
+        }
+
+        const token = jwt.sign(user, 'secret')
+             return res.status(200).send({
+                  sucess: true,
+            statusCode: 200,
+            body: {
+                text:'User logged in correctly',
+                user,
+                token
+            }
+            })
+
+    })(req, res)
+})
+
+export default authRouter 

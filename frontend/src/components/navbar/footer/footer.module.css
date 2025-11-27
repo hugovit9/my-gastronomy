@@ -1,0 +1,33 @@
+.footerContainer, .linksContainer{
+      background-color: #004643;
+      color: #FFBC51;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5em;
+}
+
+.footerContainer{
+      padding-bottom: 1em;
+}
+
+.footerContainer img{
+    width: 6em;
+}
+
+.link{
+    color: #faf0ca;
+}
+
+.credits{
+    color: #faf0ca;
+}
+
+a{
+    color: #faf0ca;
+}
+
+.vitor{
+    text-decoration: underline;
+}
