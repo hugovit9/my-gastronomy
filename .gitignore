@@ -27,3 +27,4 @@ dist-ssr
 *.env.production
 *.env.development
 *node_modules
+/backend/node_modules
