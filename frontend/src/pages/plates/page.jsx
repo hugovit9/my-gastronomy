@@ -4,6 +4,7 @@ import Loading from "../loading/page";
 import PlateCard from "../../components/navbar/plateCard/plateCard";
 import styles from './page.module.css'
 
+
 export default function Plates(){
     
     const {getAvailablePlates, platesList, plateLoading, refetchPlates } = plateServices()
