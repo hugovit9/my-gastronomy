@@ -18,15 +18,12 @@ A aplicação permite que usuários naveguem pelo cardápio, adicionem itens ao 
 - 🍃 **MongoDB / Mongoose**
 - 🔐 **JWT** para autenticação
 - ⚙️ **dotenv, cors, morgan, bcrypt**
-- 🧾 **Stripe / PagSeguro** (para pagamentos)
 - 🔁 **Nodemon** (ambiente dev)
 
 ### 💻 Frontend
 - ⚛️ **React.js**
-- ⚡ **Vite**
-- 🌐 **Axios** (requisições à API)
 - 🧭 **React Router DOM**
-- 🎨 **TailwindCSS / CSS Modules / Bootstrap**
-- 🛍️ **Context API / Redux** (para o carrinho)
+- 🎨 **CSS Modules**
+- 🛍️ **Context API**
 
 ---
