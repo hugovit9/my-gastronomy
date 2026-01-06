@@ -1,8 +1,10 @@
-.authPageContainer, form{
+.authPageContainer{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-items: center;
-    gap: 0.5em;
-    
+    gap: 1em;
+}
+
+form{
+    display: flex;
+    gap: 1em;
 }
