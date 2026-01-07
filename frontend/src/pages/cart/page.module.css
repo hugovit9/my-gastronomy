@@ -1,50 +1,70 @@
-.itemContainer{
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 1em;
-}
-
-.itemContainer img{
-    width: 200px;
-    height: 100%;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.itemsListContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-
-.pageContainer{
+.pageContainer {
     display: flex;
     flex-direction: column;
     gap: 2em;
     align-items: center;
+    padding: 1rem;
+    padding-bottom: 100px;
+    margin: 0 auto;
 }
 
-.itemContent{
-    width: 100;
+.itemsListContainer {
     display: flex;
     flex-direction: column;
+    gap: 1.5em;
+    width: 100%;
+    max-width: 800px;
+}
+
+
+.itemContainer {
+    display: flex;
+    flex-direction: column; 
+    gap: 1em;
+    padding-bottom: 1em;
+}
+
+.itemContainer img {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+.portionsBotons {
+    display: flex;
+    flex-direction: row; 
     gap: 0.5em;
+
+}
+
+.portionsBotons button {
+    display: flex;
+    padding: 5px 15px;
+    cursor: pointer;
 }
 
 .portionsContainer{
+    padding-bottom: 1em;
+    padding-top: 1em;
     display: flex;
     align-items: center;
     gap: .5em;
+
 }
 
-.portionsBotons{
-    display: flex;
-    gap: .2em;
+@media (min-width: 600px) {
+    .itemContainer {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+    }
 }
-
 .confirmBtn{
     position: fixed;
+    display: flex;
     font-size: x-large;
     bottom: 2em;
-    
+    transform: translateX(-50%);
+    left: 50%;
 }

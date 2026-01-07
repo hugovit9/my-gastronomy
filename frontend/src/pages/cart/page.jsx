@@ -43,7 +43,7 @@ export default function Cart(){
 
     if(!cartItems.length){
         return(
-        <div>
+        <div className={styles.pageContainer}>
         <h1> Your cart is empty...</h1>
         <button>See our specialities!</button>
         </div>
@@ -62,8 +62,7 @@ export default function Cart(){
                         <p>[{String(item.ingredients)}]</p>
                         <p>{item.description}</p>
                         <div className={styles.portionsContainer}>
-                            <p>Portions:</p>
-                            <p>{item.quantity}</p>
+                            <p>Portions: {item.quantity} </p>
                             <div className={styles.portionsBotons}>
                                 <button onClick={() => {handleChangeItemQty('less', item._id)}}>-</button>
                                 <button onClick={() => {handleChangeItemQty('more', item._id)}} >+</button>

@@ -6,53 +6,58 @@ import styles from './page.module.css'
 import PlatePopup from "../../components/platePopup/platePopup";
 import { useCartContext } from "../../contexts/useCartContext";
 
-export default function Plates(){
-    
-    const {getAvailablePlates, platesList, plateLoading, refetchPlates } = plateServices()
-    const [plateSelected, setPlateSelected] = useState(null)
-    const { addToCart } = useCartContext()
+export default function Plates() {
+  const { getAvailablePlates, platesList, plateLoading, refetchPlates } = plateServices();
+  const [plateSelected, setPlateSelected] = useState(null);
+  const { addToCart } = useCartContext();
+  const categories = [
+    { id: "Appetizer", label: "Appetizers" },
+    { id: "First", label: "First Courses" },
+    { id: "Second", label: "Second Courses" },
+    { id: "Side", label: "Side Dishes" },
+    { id: "Other", label: "Others" }
+  ];
 
+  useEffect(() => {
+    if (refetchPlates) getAvailablePlates();
+  }, [refetchPlates]);
 
-       useEffect(() => {
-         if (refetchPlates) {
-           getAvailablePlates();
-         }
-       }, [refetchPlates]);
+  if (plateLoading) return <Loading />;
 
-       const handlePlateSelected = (plate) =>{
-        setPlateSelected(plate)
-       }
+  return (
+    <>
+      <div className={styles.menuWrapper}>
+        {categories.map((cat) => {
+          const filtered = platesList.filter(p => p.category === cat.id);
+          if (filtered.length === 0) return null;
 
-        const handleClosePopup = () =>{
-        setPlateSelected(null)
-       }
-        const handleAddToCart = (itemToAdd) =>{
-          addToCart(itemToAdd)
-       }
+          return (
+            <section key={cat.id} className={styles.section}>
+              <h2 className={styles.categoryTitle}>{cat.label}</h2>
+              <div className={styles.grid}>
+                {filtered.map((plate) => (
+                  <div 
+                    key={plate._id} 
+                    className={styles.clickableCard} 
+                    onClick={() => setPlateSelected(plate)}
+                  >
+                    <PlateCard plateData={plate} />
+                  </div>
+                ))}
+              </div>
+            </section>
+          );
+        })}
+      </div>
 
-     
-       if(plateLoading){
-         return (<Loading></Loading>)
-       }
-
-
-
-    return(
-        <>
-        <div>
-          {platesList.map((plate)=>(
-            <div key={plate._id} className={styles.cardContainer} onClick={() => {handlePlateSelected(plate)}}> 
-            <PlateCard plateData={plate}></PlateCard>
-            </div>
-          ))}
-        </div>
-
-        {plateSelected && (
-          <>
-          <PlatePopup plateData={plateSelected} onClose={handleClosePopup} onAddToCart={handleAddToCart}></PlatePopup>
-          </>
-        )}
-        </>
-    )
+      {plateSelected && (
+        <PlatePopup 
+          plateData={plateSelected} 
+          onClose={() => setPlateSelected(null)} 
+          onAddToCart={addToCart} 
+        />
+      )}
+    </>
+  );
 }
 

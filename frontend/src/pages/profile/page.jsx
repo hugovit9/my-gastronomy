@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import authServices from '../../services/auth';
 import orderServices from "../../services/order";
 import styles from "./page.module.css";
-import { LuLogOut } from "react-icons/lu";
+import { LuLogOut, LuTimer } from "react-icons/lu";
 import Loading from "../loading/page";
 
 export default function Profile() {

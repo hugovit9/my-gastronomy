@@ -1,53 +1,46 @@
 import { createContext, useContext, useState } from "react";
+import styles from "./useCartContext.module.css";
 
-const CartContext = createContext()
+const CartContext = createContext();
 
-export function CartProvider({children}){
+export function CartProvider({ children }) {
     const [cartItems, setCartItems] = useState([]);
+    const [message, setMessage] = useState(null);
 
-    const addToCart = (itemToAdd) =>{
-        const checkItemAlready = cartItems.find(() =>{
-        return cartItems._id === itemToAdd._id
-        })
-        if(!checkItemAlready){
-            itemToAdd.quantity = 1
-            setCartItems([...cartItems, itemToAdd])
-            console.log("Item added correctly")
-        } else{
-            console.log("Item is already on cart")
-        }
-    }
-    
-    
-    const removeFromCart = (itemId) =>{
-        const cartItemsSanitized = cartItems.filter((item) => {
-            return item._id !== itemId
-        })
-        setCartItems(cartItemsSanitized)
-    }
+    const showToast = (msg) => {
+        setMessage(msg);
+        setTimeout(() => setMessage(null), 3000);
+    };
 
-    const updateCartItems = (items) =>{
-        setCartItems(items)
-    }
+    const addToCart = (itemToAdd) => {
+        setCartItems((prevItems) => {
+            const exists = prevItems.find((item) => item._id === itemToAdd._id);
+            if (!exists) {
+                showToast("Item added to cart!");
+                return [...prevItems, { ...itemToAdd, quantity: 1 }];
+            }
+            showToast("Item already in cart!");
+            return prevItems;
+        });
+    };
 
-    const clearCart = () =>{
-    setCartItems([]) 
-    }
+    const removeFromCart = (itemId) => {
+        setCartItems((prevItems) => {
+            const newCart = prevItems.filter((item) => item._id !== itemId);
+            showToast("Item removed from cart!");
+            return newCart;
+        });
+    };
 
-    return(
-        <CartContext.Provider value={{ removeFromCart, addToCart, cartItems, updateCartItems, clearCart}}>
+    const updateCartItems = (items) => setCartItems(items);
+    const clearCart = () => setCartItems([]);
+
+    return (
+        <CartContext.Provider value={{ removeFromCart, addToCart, cartItems, updateCartItems, clearCart, message, showToast }}>
             {children}
+            {message && <div className={styles.toast}>{message}</div>}
         </CartContext.Provider>
-    )
+    );
 }
 
-
-export const useCartContext = () =>{
-    const context = useContext(CartContext)
-
-    if(!context){
-        console.log('you are out of CartContext')
-    }
-
-    return context
-}
+export const useCartContext = () => useContext(CartContext);
