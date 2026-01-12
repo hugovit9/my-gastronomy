@@ -27,3 +27,7 @@ A aplicação permite que usuários naveguem pelo cardápio, adicionem itens ao 
 - 🛍️ **Context API**
 
 ---
+
+📸 Preview
+
+![Image](https://github.com/user-attachments/assets/1a242e13-6cfa-4b6e-8c4a-e57a8b2f5a3a)
