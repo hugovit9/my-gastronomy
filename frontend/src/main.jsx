@@ -8,6 +8,9 @@ import Cart from './pages/cart/page.jsx'
 import Profile from './pages/profile/page.jsx'
 import Plates from './pages/plates/page.jsx'
 import Auth from './pages/auth/page.jsx'
+import OwnerDashboard from './pages/owner/dashboard.jsx'
+import OwnerOrders from './pages/owner/orders.jsx'
+import OwnerPlates from './pages/owner/plates.jsx'
 
 
 const pages = createBrowserRouter([{
@@ -18,7 +21,10 @@ const pages = createBrowserRouter([{
     {path: '/cart', element: <Cart></Cart>},
     {path: '/profile', element: <Profile></Profile>},
     {path: '/plates', element: <Plates></Plates>},
-    {path: '/auth', element: <Auth></Auth>}
+    {path: '/auth', element: <Auth></Auth>},
+    {path: '/owner/dashboard', element: <OwnerDashboard></OwnerDashboard>},
+    {path: '/owner/orders', element: <OwnerOrders/>},
+    { path: "/owner/plates", element: <OwnerPlates /> }
     
   ]
     

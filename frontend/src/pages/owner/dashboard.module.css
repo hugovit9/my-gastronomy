@@ -1,0 +1,29 @@
+.dashboardContainer{
+    justify-items: center;
+    background-color: #faf0ca;
+    color: #004643;
+}
+
+.dashboardContainer nav{
+display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.btnLinks{
+  background-color: #004643;
+  color: #faf0ca;
+  border: 1px solid #faf0ca;
+  padding: 8px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  min-width: 150px;  
+  width: 150px;      
+  height: 36px;      
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+    
+}

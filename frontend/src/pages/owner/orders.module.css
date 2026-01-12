@@ -1,0 +1,106 @@
+.ordersContainer {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.orderCard {
+  background-color: #004643;
+  padding: 18px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  border: 2px solid #faf0ca;
+  width: 100%;
+  max-width: 1280px; 
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.orderTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; 
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.orderTable thead {
+  background-color: #004643;
+  color: #faf0ca;
+}
+
+.orderTable th {
+  padding: 12px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.orderTable td {
+  padding: 10px;
+  color: #faf0ca;
+  background-color: #012c2b;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.orderTable tr:hover td {
+  opacity: 0.92;
+}
+
+
+.actionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+
+.btnStyle {
+  background-color: #004643;
+  color: #faf0ca;
+  border: 1px solid #faf0ca;
+  padding: 8px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  min-width: 150px;  
+  width: 150px;      
+  height: 36px;      
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.btnStyle:hover {
+  transform: scale(1.04);
+  opacity: 0.96;
+}
+
+
+.btnLinks{
+  background-color: #004643;
+  color: #faf0ca;
+  border: 1px solid #faf0ca;
+  padding: 8px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  min-width: 150px;  
+  width: 150px;      
+  height: 36px;      
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+} 

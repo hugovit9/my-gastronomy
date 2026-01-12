@@ -34,8 +34,8 @@ passport.use(new LocalStrategy({usernameField: 'email'}, async(email, password, 
             return callback(null, false)
         }
 
-        const {password, salt, ...rest} = user
-        return callback(null, rest)
+const { password, salt, ...rest } = user
+return callback(null, { ...rest, id: user._id })    
     })
 }))
 
@@ -72,30 +72,36 @@ authRouter.post('/signup', async(req, res) =>{
         const result = await Mongo.db
         .collection(collectionName)
         .insertOne({
-            fullname: req.body.fullname,
-            email: req.body.email,
-            password: hashedPassword,
-            salt
-        })
+  fullname: req.body.fullname,
+  email: req.body.email,
+  password: hashedPassword,
+  salt,
+  role: "user" 
+})
 
-        if(result.insertedId){
-            const user = await Mongo.db
-            .collection(collectionName)
-            .findOne({_id: new ObjectId(result.insertedId)})
+if (result.insertedId) {
+  const user = await Mongo.db
+    .collection(collectionName)
+    .findOne({ _id: new ObjectId(result.insertedId) })
 
-            const token = jwt.sign(user, 'secret')
+  const token = jwt.sign(
+    { id: user._id, role: user.role, restauranteId: user.restauranteId || null },
+    "secret"
+  )
 
-            return res.send({
-                    sucess: true,
-            statusCode: 200,
-            body: {
-                text:'User registered correctly!',
-                token,
-                user,
-                logged: true
-            }
-            })
-        }
+  const { password, salt, ...safeUser } = user 
+
+  return res.send({
+    sucess: true,
+    statusCode: 200,
+    body: {
+      text: "User registered correctly!",
+      token,
+      user: safeUser,
+      logged: true,
+    },
+  })
+}
     })
 })
 
@@ -122,7 +128,10 @@ authRouter.post('/login', (req, res) => {
             })
         }
 
-        const token = jwt.sign(user, 'secret')
+        const token = jwt.sign(
+  { id: user.id, role: user.role, restauranteId: user.restauranteId || null },
+  'secret'
+)
              return res.status(200).send({
                   sucess: true,
             statusCode: 200,

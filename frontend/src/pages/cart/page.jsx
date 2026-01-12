@@ -4,6 +4,7 @@ import styles from './page.module.css'
 import { FiMinusCircle } from "react-icons/fi";
 import ConfirmOrderPopup from "../../components/confirmOrderPopup/confirmOrderPopup";
 import orderServices from "../../services/order";
+import { Link } from "react-router-dom";
 
 
 
@@ -45,7 +46,7 @@ export default function Cart(){
         return(
         <div className={styles.pageContainer}>
         <h1> Your cart is empty...</h1>
-        <button>See our specialities!</button>
+     <Link to={'/plates'}><button>See our specialities!</button></Link> 
         </div>
     )}
     return(

@@ -105,3 +105,15 @@
       font-size: 18px;
       text-decoration: underline;
 }
+
+.dashboardBtn{
+    background: #0b5149;
+  color: #f7f0d8;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: small;
+
+}

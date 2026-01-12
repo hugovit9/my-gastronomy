@@ -1,0 +1,168 @@
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #004643;
+  font-size: 28px;
+}
+
+.card {
+  background-color: #004643;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #faf0ca;
+}
+
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table thead {
+  background-color: #003b39;
+}
+
+.table th {
+  padding: 14px;
+  color: #faf0ca;
+  font-size: 15px;
+  text-align: left;
+}
+
+.table td {
+  padding: 12px;
+  background-color: #012c2b;
+  color: #faf0ca;
+  font-size: 14px;
+  border-top: 1px solid #faf0ca;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+.table tr:hover td {
+  background-color: #013836;
+}
+
+
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.editBtn,
+.btnDelete {
+  flex: 1;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s ease;
+}
+
+.editBtn {
+  background-color: #faf0ca;
+  color: #004643;
+}
+
+.editBtn:hover {
+  opacity: 0.85;
+}
+
+.btnDelete {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+.btnDelete:hover {
+  opacity: 0.9;
+}
+
+
+
+.editForm {
+  margin-top: 10px;
+  padding: 12px;
+  background-color: #003b39;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.editForm input,
+.editForm textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+}
+
+.editForm textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+
+
+.formActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.formActions button {
+  flex: 1;
+  padding: 8px 0;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.formActions button:first-child {
+  background-color: #faf0ca;
+  color: #004643;
+}
+
+.formActions button:last-child {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+.formActions button:hover {
+  opacity: 0.9;
+}
+
+
+.btnLinks{
+  background-color: #004643;
+  color: #faf0ca;
+  border: 1px solid #faf0ca;
+  padding: 8px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  min-width: 150px;  
+  width: 150px;      
+  height: 36px;      
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+} 

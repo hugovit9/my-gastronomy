@@ -58,8 +58,15 @@ export default function Profile() {
         <div>
           <button className={styles.logoutBtn} onClick={handleLogout}>Logout <LuLogOut></LuLogOut></button>
         </div>
+        
+<div className={styles.headerActions}>
+    {authData.role === "owner" && (
+      <Link to="/owner/dashboard" className={styles.dashboardBtn}>
+        Dashboard
+      </Link>
+    )} </div>
+      
       </header>
-
       {orderLoading ? (
         <div className={styles.loading}>Loading orders...</div>
       ) : ordersList && ordersList.length > 0 ? (

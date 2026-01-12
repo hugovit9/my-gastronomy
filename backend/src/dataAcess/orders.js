@@ -1,6 +1,7 @@
 import { Mongo } from "../database/mongo.js"
 import { ObjectId } from 'mongodb'
 
+
 const collectionName = 'orders'
 
 export default class OrdersDataAccess {
@@ -33,7 +34,7 @@ export default class OrdersDataAccess {
         return {
           quantity: item.quantity,
           plateId: new ObjectId(plateIdString), 
-          orderId: orderId
+          orderId: orderId,
         };
       } catch (error) {
         throw new Error(`Invalid plateId format for item: ${plateIdString}`);
